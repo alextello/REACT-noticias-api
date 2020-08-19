@@ -13,3 +13,12 @@ code {
 .header-titulo {
 	margin-left: 5rem;
 }
+
+.parrafo {
+	margin: 15px;
+}
+
+.titulo {
+	font-weight: 500;
+	margin: 25px;
+}
