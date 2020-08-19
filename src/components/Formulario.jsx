@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './Formulario.module.css';
 import useSelect from '../hooks/useSelect';
 
-const Formulario = (props) => {
+const Formulario = ({ setCategoria }) => {
 	const OPCIONES = [
 		{ value: 'general', label: 'General' },
 		{ value: 'business', label: 'Negocios' },
@@ -17,10 +17,15 @@ const Formulario = (props) => {
 	// utilizar custom hook
 	const [categoria, SelectNoticias] = useSelect('general', OPCIONES);
 
+	// submit al form, pasar categoria a app.js
+	const buscarNoticias = (e) => {
+		e.preventDefault();
+		setCategoria(categoria);
+	};
 	return (
 		<div className={`${styles.buscador} row`}>
 			<div className="col s12 m8 offset-m2">
-				<form>
+				<form onSubmit={(e) => buscarNoticias(e)}>
 					<h3 className={styles.heading}>Encuentra noticias por categoria</h3>
 					<SelectNoticias />
 					<div className="input-field col s12">
