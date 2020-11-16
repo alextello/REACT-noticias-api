@@ -11,10 +11,11 @@ function App() {
   useEffect(() => {
     const consultarAPI = async () => {
       const key = '6c6f5cc365c64d7e9468cd0c184bacdf';
-      const url = `http://newsapi.org/v2/top-headlines?country=mx&category=${categoria}&apiKey=${key}`;
+      const url = `https://cors-anywhere.herokuapp.com/http://newsapi.org/v2/top-headlines?country=mx&category=${categoria}&apiKey=${key}`;
       const resp = await fetch(url);
       const noticias = await resp.json();
       setNoticias(noticias.articles);
+      console.log(noticias);
     }
     consultarAPI();
   }, [categoria]);
